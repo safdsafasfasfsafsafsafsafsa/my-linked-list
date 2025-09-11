@@ -24,11 +24,12 @@ function askForInput() {
   rl.question(text, inputData);
 }
 
+// 이터러블 활용한 for of 호출
 function displayList() {
   console.log("--- 리스트 전체 데이터 ---");
   let index = 0;
   for (const item of myList) {
-    console.log(`${index++}: ${item}`);
+    console.log(`${index++}: ${item}`); // 호출마다 index 추가
   }
   console.log("-------------------------");
 }

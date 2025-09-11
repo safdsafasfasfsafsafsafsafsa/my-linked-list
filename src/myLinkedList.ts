@@ -6,7 +6,7 @@
 
 export class Node<T> {
   public data: T;
-  public next: Node<T> | null;
+  public next: Node<T> | null; // 재귀적, data 마지막이면 null
 
   constructor(data: T) {
     this.data = data; // 전달받은 데이터를 노드 data에 할당
@@ -22,7 +22,7 @@ export class MyLinkedList<T> {
   public *[Symbol.iterator](): Iterator<T> {
     let current = this.head;
     while (current) {
-      yield current.data; // yield 키워드를 사용해 값 반환
+      yield current.data; // yield 키워드를 사용해 값 반환, null 전까지
       current = current.next;
     }
   }
@@ -34,6 +34,7 @@ export class MyLinkedList<T> {
       throw new Error("범위 초과");
     }
 
+    // 제네릭과 생성자 사용 선언
     const newNode = new Node<T>(data);
 
     if (index === 0) {
@@ -69,6 +70,7 @@ export class MyLinkedList<T> {
     let current: Node<T> | null = this.head;
     let count = 0;
 
+    // count로 index까지 이동
     while (count < index) {
       if (current === null) {
         throw new Error("예상치 못한 오류: 노드에 접근할 수 없습니다.");
@@ -102,12 +104,14 @@ export class MyLinkedList<T> {
         throw new Error("예상치 못한 오류: 노드에 접근할 수 없습니다.");
       }
 
+      // 삭제할 노드 직전까지 이동
       for (let i = 0; i < index - 1; i++) {
         currentNode = currentNode!.next;
       }
 
       // 제거할 노드는 반환되어야 하므로 변수에 저장
       let deletedNode: Node<T> | null = currentNode!.next;
+      // ❤ 포인터: 삭제할 노드 건너뛰고 그 다음으로 연결, 나머지 자동 갱신
       currentNode!.next = currentNode!.next!.next;
       this.length--;
 
