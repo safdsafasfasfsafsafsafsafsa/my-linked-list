@@ -18,19 +18,14 @@ export class MyLinkedList<T> {
   private head: Node<T> | null = null;
   private length: number = 0;
 
-  // constructor() {
-  //   this.head = null; // 리스트 시작점
-  //   this.length = 0; // 리스트 크기
-  // }
-
-  // // 리스트 순회
-  // *[Symbol.iterator]() {
-  //   let current = this.head;
-  //   while (current) {
-  //     yield current.data; // yield 키워드를 사용해 값 반환
-  //     current = current.next;
-  //   }
-  // }
+  // 리스트 순회
+  public *[Symbol.iterator](): Iterator<T> {
+    let current = this.head;
+    while (current) {
+      yield current.data; // yield 키워드를 사용해 값 반환
+      current = current.next;
+    }
+  }
 
   // 1. data 추가 ---------------------------------------
   add(index: number, data: T): void {

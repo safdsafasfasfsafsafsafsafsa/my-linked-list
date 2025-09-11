@@ -1,3 +1,4 @@
+// ts 변환은 tsconfig.json 있는 루트에서
 // tsc cli.ts -> node cli.js
 
 import { MyLinkedList } from "./myLinkedList.js";
@@ -16,10 +17,20 @@ function askForInput() {
    - addLast [데이터] : 리스트의 마지막에 데이터 추가
    - get [인덱스] : 인덱스의 데이터 조회
    - delete [인덱스] : 인덱스의 데이터 삭제
+   - display: 리스트 조회
    - q : 프로그램 종료
   > `;
 
   rl.question(text, inputData);
+}
+
+function displayList() {
+  console.log("--- 리스트 전체 데이터 ---");
+  let index = 0;
+  for (const item of myList) {
+    console.log(`${index++}: ${item}`);
+  }
+  console.log("-------------------------");
 }
 
 function inputData(input: string) {
@@ -49,6 +60,9 @@ function inputData(input: string) {
         console.log(`❌ 해당 인덱스에 데이터가 없습니다.`);
       }
       break;
+    case "display":
+      displayList();
+      return;
     case "q":
       rl.close();
       return;
