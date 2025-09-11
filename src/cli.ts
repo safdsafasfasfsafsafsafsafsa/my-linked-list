@@ -62,7 +62,7 @@ function inputData(input: string) {
       break;
     case "display":
       displayList();
-      return;
+      break;
     case "q":
       rl.close();
       return;

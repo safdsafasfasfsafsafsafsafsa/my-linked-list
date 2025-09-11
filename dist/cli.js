@@ -58,7 +58,7 @@ function inputData(input) {
             break;
         case "display":
             displayList();
-            return;
+            break;
         case "q":
             rl.close();
             return;
