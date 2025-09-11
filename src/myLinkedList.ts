@@ -2,9 +2,9 @@
 // https://www.freecodecamp.org/korean/news/implementing-a-linked-list-in-javascript/
 // https://sj0826.github.io/structure/structure-%EC%97%B0%EA%B2%B0%EB%A6%AC%EC%8A%A4%ED%8A%B8/
 
-// tsc myLinkedList.js
+// tsc myLinkedList.ts
 
-class Node<T> {
+export class Node<T> {
   public data: T;
   public next: Node<T> | null;
 
@@ -14,7 +14,7 @@ class Node<T> {
   }
 }
 
-class MyLinkedList<T> {
+export class MyLinkedList<T> {
   private head: Node<T> | null = null;
   private length: number = 0;
 

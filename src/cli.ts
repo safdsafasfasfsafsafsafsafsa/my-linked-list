@@ -1,6 +1,6 @@
-// node cli.js
+// tsc cli.ts -> node cli.js
 
-const { MyLinkedList } = require("./myLinkedList.js");
+import { MyLinkedList } from "./myLinkedList";
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -22,7 +22,7 @@ function askForInput() {
   rl.question(text, inputData);
 }
 
-function inputData(input) {
+function inputData(input: string) {
   // 입력 분할
   const [command, ...args] = input.split(" "); // 'get 1' -> ['get', '1']
   const index = parseInt(args[0], 10); // args의 첫번째 요소를 10진법으로 변환
