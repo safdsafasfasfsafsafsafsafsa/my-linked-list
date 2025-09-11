@@ -1,6 +1,6 @@
 // tsc cli.ts -> node cli.js
 
-import { MyLinkedList } from "./myLinkedList";
+import { MyLinkedList } from "./myLinkedList.js";
 const readline = require("readline");
 
 const rl = readline.createInterface({
