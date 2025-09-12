@@ -84,7 +84,7 @@ class MyLinkedList {
             }
             this.head = this.head.next;
             this.length--;
-            return deletedNode.data;
+            return deletedNode;
         }
         else {
             let currentNode = this.head;
@@ -97,13 +97,10 @@ class MyLinkedList {
             }
             // 제거할 노드는 반환되어야 하므로 변수에 저장
             let deletedNode = currentNode.next;
-            if (deletedNode === null) {
-                throw new Error("예상치 못한 오류: 노드에 접근할 수 없습니다.");
-            }
             // ❤ 포인터: 삭제할 노드 건너뛰고 그 다음으로 연결, 나머지 자동 갱신
             currentNode.next = currentNode.next.next;
             this.length--;
-            return deletedNode.data;
+            return deletedNode;
         }
     }
     deleteLast() {

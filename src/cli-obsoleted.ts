@@ -12,29 +12,6 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-// 저장 방식 -----------------------------------
-// let dataStructure: MyQueue<any> | MyStack<any> | null = null;
-
-// function selectDataStructure() {
-//   rl.question(
-//     "사용할 자료구조를 선택하세요 (1: 큐, 2: 스택) : ",
-//     (answer: string) => {
-//       if (answer === "1") {
-//         dataStructure = new MyQueue();
-//         console.log("큐가 선택되었습니다.");
-//         askForInput();
-//       } else if (answer === "2") {
-//         dataStructure = new MyStack();
-//         console.log("스택이 선택되었습니다.");
-//         askForInput();
-//       } else {
-//         console.log("잘못된 입력입니다. 다시 선택해주세요.");
-//         selectDataStructure();
-//       }
-//     }
-//   );
-// }
-
 // 데이터 삽입 ------------------------------
 const myList = new MyLinkedList();
 

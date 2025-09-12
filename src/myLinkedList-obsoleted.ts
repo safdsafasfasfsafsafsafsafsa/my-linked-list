@@ -15,8 +15,8 @@ export class Node<T> {
 }
 
 export class MyLinkedList<T> {
-  public head: Node<T> | null = null;
-  public length: number = 0;
+  private head: Node<T> | null = null;
+  private length: number = 0;
 
   // 리스트 순회
   public *[Symbol.iterator](): Iterator<T> {
@@ -67,7 +67,7 @@ export class MyLinkedList<T> {
     }
 
     // 노드 순회
-    let current = this.head;
+    let current: Node<T> | null = this.head;
     let count = 0;
 
     // count로 index까지 이동
@@ -90,16 +90,16 @@ export class MyLinkedList<T> {
     }
 
     if (index == 0) {
-      let deletedNode = this.head;
+      let deletedNode: Node<T> | null = this.head;
       if (deletedNode === null) {
         throw new Error("예상치 못한 오류: 노드에 접근할 수 없습니다.");
       }
       this.head = this.head!.next;
       this.length--;
 
-      return deletedNode.data;
+      return deletedNode;
     } else {
-      let currentNode = this.head;
+      let currentNode: Node<T> | null = this.head;
       if (currentNode === null) {
         throw new Error("예상치 못한 오류: 노드에 접근할 수 없습니다.");
       }
@@ -110,15 +110,12 @@ export class MyLinkedList<T> {
       }
 
       // 제거할 노드는 반환되어야 하므로 변수에 저장
-      let deletedNode = currentNode!.next;
-      if (deletedNode === null) {
-        throw new Error("예상치 못한 오류: 노드에 접근할 수 없습니다.");
-      }
+      let deletedNode: Node<T> | null = currentNode!.next;
       // ❤ 포인터: 삭제할 노드 건너뛰고 그 다음으로 연결, 나머지 자동 갱신
       currentNode!.next = currentNode!.next!.next;
       this.length--;
 
-      return deletedNode.data;
+      return deletedNode;
     }
   }
 

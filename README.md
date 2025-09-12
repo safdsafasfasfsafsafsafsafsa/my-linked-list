@@ -1,4 +1,10 @@
-# 참조
+# myLinkedList
+
+## 실행
+
+루트 npm run build -> node dist/cli.js
+
+## 참조
 
 - 초기 설정: https://velog.io/@nemo/typescript-install-setting
 
